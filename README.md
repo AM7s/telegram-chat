@@ -1,16 +1,32 @@
-# React + Vite
+# Telegram Chat (React + GREEN-API)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Простой веб-интерфейс для обмена текстовыми сообщениями в Telegram, разработанный с использованием React и [GREEN-API](https://green-api.com/telegram/). Интерфейс стилизован под классический мессенджер.
 
-Currently, two official plugins are available:
+## Функциональные возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Авторизация**: Вход в систему с использованием учетных данных GREEN-API (`IdInstance` и `ApiTokenInstance`).
+- **Создание чата**: Поиск пользователя Telegram по номеру телефона и создание нового диалога.
+- **Отправка сообщений**: Отправка текстовых сообщений выбранному получателю.
+- **Получение сообщений**: Автоматическое получение входящих сообщений в реальном времени (с использованием технологии опроса HTTP API).
 
-## React Compiler
+## Технологический стек
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React** 
+- **JavaScript (ES6+)**
+- **CSS** 
+- **Vite** 
 
-## Expanding the ESLint configuration
+## Структура проекта
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+├── components/
+│   ├── ChatWindow.jsx   # Основное окно чата (список сообщений, ввод текста)
+│   ├── LoginForm.jsx    # Форма авторизации
+│   └── MessageBubble.jsx # Компонент отдельного сообщения (пузырь)
+├── hooks/
+│   └── useGreenApi.js   # Хук для инкапсуляции логики работы с API GREEN-API
+├── App.jsx              # Корневой компонент приложения
+├── main.jsx             # Точка входа React-приложения
+└── style.css            # Глобальные стили и стили компонентов
+
